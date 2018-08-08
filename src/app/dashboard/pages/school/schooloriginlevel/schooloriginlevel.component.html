@@ -1,0 +1,61 @@
+<div class="container-fluid">
+  <div class="page-title">
+      <h4>{{ title }}</h4>
+      <button class="btn btn-info" routerLink="new">Nuevo</button>
+  </div>
+  <div class="row">
+      <div class="col-md-12">
+          <div class="card">
+              <div class="card-block">   
+                  <div class="table-overflow">
+                      <table class="table table-lg table-hover" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+                          <thead>
+                              <tr class="text-center">
+                                  <th>Id</th>
+                                  <th>Nivel</th>
+                                  <th></th>	
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor="let originlevel of originlevels" class="text-center">
+                                  <td>
+                                      <div class="list-info mrg-top-10">
+                                          <div class="info">
+                                              <span class="title">{{ originlevel.id }}</span>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  <td>
+                                      <div class="relative mrg-top-15">
+                                          <span class="pdd-left-20">{{ originlevel.levelName }}</span>
+                                      </div>
+                                  </td>
+                                  <td>
+                                      <div class="mrg-top-10 text-center">
+                                          <button [routerLink]="['edit', originlevel.id]" class="btn btn-success btn-icon">
+                                              <i class="ti-pencil"></i>
+                                          </button>
+                                          <button [swal]="deleteSwal" class="btn btn-danger btn-icon">
+                                              <i class="ti-trash"></i>
+                                          </button>
+                                      </div>
+                                        <swal
+                                            #deleteSwal
+                                            title="Eliminar {{ originlevel.name }}?"
+                                            text="Eliminar del sistema."
+                                            type="question"
+                                            [showCancelButton]="true"
+                                            [focusCancel]="true"
+                                            (confirm)="delete(originlevel.id, originlevel)">
+                                        </swal>
+                                  </td>
+                              </tr>
+                          </tbody> 
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>    
+

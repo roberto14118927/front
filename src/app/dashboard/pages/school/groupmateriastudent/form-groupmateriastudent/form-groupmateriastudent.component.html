@@ -1,0 +1,80 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-heading border bottom">
+                    <h4 class="card-title">Materias</h4>
+                </div>
+                <div class="card-block">
+                    <div class="card-block">
+                        <div class="row">
+                            <div class="col-md-8 ml-auto mr-auto">
+                                <form [formGroup]="groupMateriaStudentFormGroup">
+                                    <div class="row">
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Grupo escolar</label>
+                                              <ng-selectize [config]="selectConfig" [options]="schoolGroups" formControlName="schoolGroup" ngDefaultControl></ng-selectize>
+                                              <label *ngIf="groupMateriaStudentFormGroup.get('schoolGroup').hasError('required')" class="error">El grupo escolar es requerido.</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Materia</label>
+                                              <ng-selectize [config]="selectConfigMateria" [options]="schoolMaterias" formControlName="schoolMateria" ngDefaultControl></ng-selectize>
+                                              <label *ngIf="groupMateriaStudentFormGroup.get('schoolMateria').hasError('required')" class="error">La materia es requerida.</label>
+                                          </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Parcial</label>
+                                              <ng-selectize [config]="selectConfigPartial" [options]="partials" formControlName="isPartial" ngDefaultControl></ng-selectize>
+                                              <label *ngIf="groupMateriaStudentFormGroup.get('isPartial').hasError('required')" class="error">El parcial es requerido.</label>
+                                          </div>                                        
+                                      </div>
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Calificación</label>
+                                              <input type="number" class="form-control" formControlName="scoreNumber" placeholder="Calificación">
+                                              <label *ngIf="groupMateriaStudentFormGroup.get('scoreNumber').hasError('required')" class="error">La calificación es requerida.</label>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Calificación teórica</label>
+                                            <input type="number" class="form-control" formControlName="theoryScore" placeholder="Calificación teórica">
+                                            <label *ngIf="groupMateriaStudentFormGroup.get('theoryScore').hasError('required')" class="error">La calificación teórica es requerida.</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                          <label>Calificación de prácticas</label>
+                                          <input type="number" class="form-control" formControlName="practiceScore" placeholder="Calificación de prácticas">
+                                          <label *ngIf="groupMateriaStudentFormGroup.get('practiceScore').hasError('required')" class="error">La calificación de prácticas es requerida.</label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Calificación final</label>
+                                              <input type="number" class="form-control" formControlName="finalScore" placeholder="Calificación final">
+                                              <label *ngIf="groupMateriaStudentFormGroup.get('finalScore').hasError('required')" class="error">La calificación final es requerida.</label>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <button type="submit" [class]="classBtn" [disabled]="groupMateriaStudentFormGroup.invalid" (click)="save()">{{ txtBtn }}</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

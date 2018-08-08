@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="card">
+              <div class="card-heading border bottom">
+                  <h4 class="card-title">Nivel de escuelas</h4>
+              </div>
+              <div class="card-block">
+                  <div class="card-block">
+                      <div class="row">
+                          <div class="col-md-8 ml-auto mr-auto">
+                              <form [formGroup]="SchoolOriginLevelFormGroup">
+                                  <div class="row">
+                                      <div class="col-md-4">
+                                          <div class="form-group">
+                                              <label>Nombre</label>
+                                              <input type="text" class="form-control" formControlName="levelName" placeholder="Nombre">
+                                              <label *ngIf="SchoolOriginLevelFormGroup.get('levelName').hasError('required')" class="error">El nombre es requerido.</label>
+                                          </div>
+                                      </div>
+                                  </div>
+                        
+                                
+                                  <button type="submit" [class]="classBtn" [disabled]="SchoolOriginLevelFormGroup.invalid" (click)="save()">{{ txtBtn }}</button>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

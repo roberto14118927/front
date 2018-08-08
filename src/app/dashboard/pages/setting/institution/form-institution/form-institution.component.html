@@ -1,0 +1,112 @@
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="card">
+              <div class="card-heading border bottom">
+                  <h4 class="card-title">School Shift</h4>
+              </div>
+              <div class="card-block">
+                  <div class="card-block">
+                      <div class="row">
+                          <div class="col-md-8 ml-auto mr-auto">
+                              <form [formGroup]="InstitutionFormGroup">
+                                  <div class="row">
+                                      <div class="col-md-8">
+                                          <div class="form-group">
+                                              <label>Nombre</label>
+                                              <input type="text" class="form-control" formControlName="name" placeholder="Nombre">
+                                              <label *ngIf="InstitutionFormGroup.get('name').hasError('required')" class="error">El nombre es requerido.</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-4">
+                                          <div class="form-group">
+                                              <label>Número de control</label>
+                                              <input type="number" class="form-control" formControlName="controlNumber" placeholder="Número de control">
+                                              <label *ngIf="InstitutionFormGroup.get('controlNumber').hasError('required')" class="error">El número de control es requerido.</label>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-md-8">
+                                          <div class="form-group">
+                                              <label>Dirección</label>
+                                              <input type="text" class="form-control" formControlName="address" placeholder="Dirección">
+                                              <label *ngIf="InstitutionFormGroup.get('address').hasError('required')" class="error">La dirección es requerida.</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-4">
+                                          <div class="form-group">
+                                              <label>Código postal</label>
+                                              <input type="number" class="form-control" formControlName="zipCode" placeholder="Código postal">
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Ciudad</label>
+                                              <input type="text" class="form-control" formControlName="city" placeholder="Ciudad">
+                                          </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Estado</label>
+                                              <input type="text" class="form-control" formControlName="state" placeholder="Estado">
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label for="logo">Logotipo</label>
+                                            <input type="file" id="logo" class="form-control" (change)="onFileChange($event)" #fileInput>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img [src]="logoUrl" style="width:150px; height:150px;float:left;border-radius:50%;margin-right:25px;margin-left:10px;">
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Nombre comercial</label>
+                                              <input type="text" class="form-control" formControlName="businessName" placeholder="Nombre comercial">
+                                          </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Rfc</label>
+                                              <input type="text" class="form-control" formControlName="rfc" placeholder="Rfc">
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Dirección comercial</label>
+                                              <input type="text" class="form-control" formControlName="businessAddress" placeholder="Dirección comercial">
+                                          </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                          <label>Fecha operación</label>
+                                          <div class="timepicker-input input-icon">
+                                              <i class="ti-time"></i>
+                                              <input type="text" class="form-control" placeholder="yyyy-mm-dd" formControlName="businessInitDate" ngbDatepicker #date="ngbDatepicker" (click)="date.toggle();$event.stopPropagation();" (document:click)="date.close()">
+                                              <label *ngIf="InstitutionFormGroup.get('businessInitDate').hasError('required')" class="error">La fecha es requerida.</label>
+
+                                            </div>
+                                        </div>
+                                      </div>
+                                  </div>
+                                
+                                  <button type="submit" [class]="classBtn" [disabled]="InstitutionFormGroup.invalid" (click)="save()">{{ txtBtn }}</button>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

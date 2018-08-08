@@ -1,0 +1,470 @@
+<div class="card">
+  <div class="padding-20">
+    <h4 class="card-title no-mrg-btm">Horarios </h4>
+  </div>
+  <div class="tab-info center-tabs">
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a href="#tab-centered-1" class="nav-link active show" role="tab" data-toggle="tab" aria-selected="true">Lunes</a>
+      </li>
+      <li class="nav-item">
+        <a href="#tab-centered-2" class="nav-link" role="tab" data-toggle="tab" aria-selected="false">Martes</a>
+      </li>
+      <li class="nav-item">
+        <a href="#tab-centered-3" class="nav-link " role="tab" data-toggle="tab" aria-selected="false">Miercoles</a>
+      </li>
+      <li class="nav-item">
+        <a href="#tab-centered-4" class="nav-link" role="tab" data-toggle="tab" aria-selected="false">Jueves</a>
+      </li>
+      <li class="nav-item">
+        <a href="#tab-centered-5" class="nav-link" role="tab" data-toggle="tab" aria-selected="false">Viernes</a>
+      </li>
+      <li class="nav-item">
+        <a href="#tab-centered-6" class="nav-link" role="tab" data-toggle="tab" aria-selected="false">Sabado</a>
+      </li>
+      <li class="nav-item">
+        <a href="#tab-centered-7" class="nav-link" role="tab" data-toggle="tab" aria-selected="false">Domingo</a>
+      </li>
+    </ul>
+    <form [formGroup]="TeacherFormGroup">
+      <div class="tab-content ">
+        <div role="tabpanel" class="tab-pane fade active show" id="tab-centered-1">
+          <div class="pdd-horizon-15 pdd-vertical-20">
+            <!-- <div class="row">
+              <div class="col-md-3 offset-md-5">
+                <p>
+                  Horario Matutino
+                </p>
+              </div>
+            </div> -->
+            <div class="row">
+              <div class="col-md-3 offset-md-3">
+                <h4 class="card-title">Hora Inicio Matutino</h4>
+                <div class="mrg-top-40">
+                  <div class="timepicker-input input-icon form-group">
+                    <i class="ti-time"></i>
+                    <input type="text" class="form-control" formControlName="mondayInitM" data-provide="datepicker" [owlDateTimeTrigger]="mondayIM" [owlDateTime]="mondayIM">
+                    <owl-date-time [pickerType]="'timer'" #mondayIM></owl-date-time>
+                    <label *ngIf="TeacherFormGroup.get('mondayInitM').hasError('required')" class="error">La hora inicio es requerido.</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <h4 class="card-title">Hora Final Matutino</h4>
+                <div class="mrg-top-40">
+                  <div class="timepicker-input input-icon form-group">
+                    <i class="ti-time"></i>
+                    <input type="text" class="form-control datepicker-1" formControlName="mondayEndM" placeholder="Datepicker" data-provide="datepicker"
+                      [owlDateTimeTrigger]="mondayEM" [owlDateTime]="mondayEM">
+                    <owl-date-time [pickerType]="'timer'" #mondayEM></owl-date-time>
+                    <label *ngIf="TeacherFormGroup.get('mondayEndM').hasError('required')" class="error">La hora Final es requerido.</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <h4 class="card-title">Agregar</h4>
+                <div class="mrg-top-40">
+                  <button class="btn btn-info" (click)="addHour('mondayInitM', 'mondayEndM', 'monday')">
+                    <i class="ei-addthis pdd-right-3"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 offset-md-4">
+                <ul class="event-list" *ngFor="let HoursFor of hourStartP">
+                  <li class="event-items" *ngIf="HoursFor.day === 'mondayM'">
+                    <h3>
+                      <span class="event-name">De: </span>
+                      <span class="event-name"> {{ HoursFor.datas.dayHourInitOut }} </span>
+                      <span class="event-name">A: </span>
+                      <span class="event-name"> {{ HoursFor.datas.dayHourEndOut }} </span>
+                      <a href="javascript:;" class="remove" (click)="removeHour('mondayInitM', 'mondayEndM', 'monday', HoursFor)">
+                        <i class="ti-trash"></i>
+                      </a>
+                    </h3>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- <div class="row">
+              <div class="col-md-3 offset-md-5">
+                <p>
+                  Horario Vespertino
+                </p>
+              </div>
+            </div> -->
+            <div class="row">
+                <div class="col-md-3 offset-md-3">
+                  <h4 class="card-title">Hora Inicio Vespertino</h4>
+                  <div class="mrg-top-40">
+                    <div class="timepicker-input input-icon form-group">
+                      <i class="ti-time"></i>
+                      <input type="text" class="form-control datepicker-1" formControlName="mondayInitV" placeholder="Datepicker" data-provide="datepicker"
+                        [owlDateTimeTrigger]="mondayIV" [owlDateTime]="mondayIV">
+                      <owl-date-time [pickerType]="'timer'" #mondayIV></owl-date-time>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <h4 class="card-title">Hora Final Vespertino</h4>
+                  <div class="mrg-top-40">
+                    <div class="timepicker-input input-icon form-group">
+                      <i class="ti-time"></i>
+                      <input type="text" class="form-control datepicker-1" formControlName="mondayEndV" placeholder="Datepicker" data-provide="datepicker"
+                        [owlDateTimeTrigger]="mondayEV" [owlDateTime]="mondayEV">
+                      <owl-date-time [pickerType]="'timer'" #mondayEV></owl-date-time>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <h4 class="card-title">Agregar</h4>
+                  <div class="mrg-top-40">
+                    <button class="btn btn-info" (click)="addHour('mondayInitV', 'mondayEndV', 'mondayV')">
+                      <i class="ei-addthis pdd-right-3"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 offset-md-4">
+                  <ul class="event-list" *ngFor="let HoursFor of hourStartP">
+                    <li class="event-items" *ngIf="HoursFor.day === 'mondayV'">
+                      <h3>
+                        <span class="event-name">De: </span>
+                        <span class="event-name"> {{ HoursFor.datas.dayHourInitOut }} </span>
+                        <span class="event-name">A: </span>
+                        <span class="event-name"> {{ HoursFor.datas.dayHourEndOut }} </span>
+                        <a href="javascript:;" class="remove" (click)="removeHour('mondayInitV', 'mondayEndV', 'monday', HoursFor)">
+                          <i class="ti-trash"></i>
+                        </a>
+                      </h3>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="tab-centered-2">
+          <div class="pdd-horizon-15 pdd-vertical-20">
+            <div class="row">
+              <div class="col-md-3 offset-md-3">
+                <h4 class="card-title">Hora Inicio Matutino</h4>
+                <div class="mrg-top-40">
+                  <div class="timepicker-input input-icon form-group">
+                    <i class="ti-time"></i>
+                    <input type="text" class="form-control datepicker-1" formControlName="tuesdayInitM" placeholder="Datepicker" data-provide="datepicker"
+                      [owlDateTimeTrigger]="tuesdayIM" [owlDateTime]="tuesdayIM">
+                    <owl-date-time [pickerType]="'timer'" #tuesdayIM></owl-date-time>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <h4 class="card-title">Hora Final Matutino</h4>
+                <div class="mrg-top-40">
+                  <div class="timepicker-input input-icon form-group">
+                    <i class="ti-time"></i>
+                    <input type="text" class="form-control datepicker-1" formControlName="tuesdayEndM" placeholder="Datepicker" data-provide="datepicker"
+                      [owlDateTimeTrigger]="tuesdayEV" [owlDateTime]="tuesdayEV">
+                    <owl-date-time [pickerType]="'timer'" #tuesdayEV></owl-date-time>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1">
+                <h4 class="card-title">Agregar</h4>
+                <div class="mrg-top-40">
+                  <button class="btn btn-info" (click)="addHour('tuesdayInit', 'tuesdayEnd', 'tuesday')">
+                    <i class="ei-addthis pdd-right-3"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 offset-md-3">
+                <ul class="event-list" *ngFor="let HoursFor of hourStartP">
+                  <li class="event-items" *ngIf="HoursFor.day === 'tuesday'">
+                    <h3>
+                      <span class="event-name">De: </span>
+                      <span class="event-name"> {{ HoursFor.datas.dayHourInitOut }} </span>
+                      <span class="event-name">A: </span>
+                      <span class="event-name"> {{ HoursFor.datas.dayHourEndOut }} </span>
+                      <a href="javascript:;" class="remove" (click)="removeHour('tuesdayInit', 'tuesdayEnd', 'tuesday', HoursFor)">
+                        <i class="ti-trash"></i>
+                      </a>
+                    </h3>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="tab-centered-3">
+          <div class="pdd-horizon-15 pdd-vertical-20">
+            <div class="row">
+              <div class="col-md-3 offset-md-3">
+                <h4 class="card-title">Hora Inicio</h4>
+                <div class="mrg-top-40">
+                  <div class="timepicker-input input-icon form-group">
+                    <i class="ti-time"></i>
+                    <input type="text" class="form-control datepicker-1" formControlName="wednesdayInit" placeholder="Datepicker" data-provide="datepicker"
+                      [owlDateTimeTrigger]="wednesdayI" [owlDateTime]="wednesdayI">
+                    <owl-date-time [pickerType]="'timer'" #wednesdayI></owl-date-time>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <h4 class="card-title">Hora Final</h4>
+                <div class="mrg-top-40">
+                  <div class="timepicker-input input-icon form-group">
+                    <i class="ti-time"></i>
+                    <input type="text" class="form-control datepicker-1" formControlName="wednesdayEnd" placeholder="Datepicker" data-provide="datepicker"
+                      [owlDateTimeTrigger]="wednesdayE" [owlDateTime]="wednesdayE">
+                    <owl-date-time [pickerType]="'timer'" #wednesdayE></owl-date-time>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1">
+                <h4 class="card-title">Agregar</h4>
+                <div class="mrg-top-40">
+                  <button class="btn btn-info" (click)="addHour('wednesdayInit', 'wednesdayEnd', 'wednesday')">
+                    <i class="ei-addthis pdd-right-3"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 offset-md-3">
+                <ul class="event-list" *ngFor="let HoursFor of hourStartP">
+                  <li class="event-items" *ngIf="HoursFor.day === 'wednesday'">
+                    <h3>
+                      <span class="event-name">De: </span>
+                      <span class="event-name"> {{ HoursFor.datas.dayHourInitOut }} </span>
+                      <span class="event-name">A: </span>
+                      <span class="event-name"> {{ HoursFor.datas.dayHourEndOut }} </span>
+                      <a href="javascript:;" class="remove" (click)="removeHour('wednesdayInit', 'wednesdayEnd', 'wednesday', HoursFor)">
+                        <i class="ti-trash"></i>
+                      </a>
+                    </h3>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="tab-centered-4">
+          <div class="pdd-horizon-15 pdd-vertical-20">
+            <div class="row">
+              <div class="col-md-3 offset-md-3">
+                <h4 class="card-title">Hora Inicio</h4>
+                <div class="mrg-top-40">
+                  <div class="timepicker-input input-icon form-group">
+                    <i class="ti-time"></i>
+                    <input type="text" class="form-control datepicker-1" formControlName="thursdayInit" placeholder="Datepicker" data-provide="datepicker"
+                      [owlDateTimeTrigger]="thursdayI" [owlDateTime]="thursdayI">
+                    <owl-date-time [pickerType]="'timer'" #thursdayI></owl-date-time>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <h4 class="card-title">Hora Final</h4>
+                <div class="mrg-top-40">
+                  <div class="timepicker-input input-icon form-group">
+                    <i class="ti-time"></i>
+                    <input type="text" class="form-control datepicker-1" formControlName="thursdayEnd" placeholder="Datepicker" data-provide="datepicker"
+                      [owlDateTimeTrigger]="thursdayE" [owlDateTime]="thursdayE">
+                    <owl-date-time [pickerType]="'timer'" #thursdayE></owl-date-time>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1">
+                <h4 class="card-title">Agregar</h4>
+                <div class="mrg-top-40">
+                  <button class="btn btn-info" (click)="addHour('thursdayInit', 'thursdayEnd', 'thursday')">
+                    <i class="ei-addthis pdd-right-3"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 offset-md-3">
+                <ul class="event-list" *ngFor="let HoursFor of hourStartP">
+                  <li class="event-items" *ngIf="HoursFor.day === 'thursday'">
+                    <h3>
+                      <span class="event-name">De: </span>
+                      <span class="event-name"> {{ HoursFor.datas.dayHourInitOut }} </span>
+                      <span class="event-name">A: </span>
+                      <span class="event-name"> {{ HoursFor.datas.dayHourEndOut }} </span>
+                      <a href="javascript:;" class="remove" (click)="removeHour('thursdayInit', 'thursdayEnd', 'thursday', HoursFor)">
+                        <i class="ti-trash"></i>
+                      </a>
+                    </h3>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="tab-centered-5">
+          <div class="pdd-horizon-15 pdd-vertical-20">
+            <div class="row">
+              <div class="col-md-3 offset-md-3">
+                <h4 class="card-title">Hora Inicio</h4>
+                <div class="mrg-top-40">
+                  <div class="timepicker-input input-icon form-group">
+                    <i class="ti-time"></i>
+                    <input type="text" class="form-control datepicker-1" formControlName="fridayInit" placeholder="Datepicker" data-provide="datepicker"
+                      [owlDateTimeTrigger]="fridayI" [owlDateTime]="fridayI">
+                    <owl-date-time [pickerType]="'timer'" #fridayI></owl-date-time>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <h4 class="card-title">Hora Final</h4>
+                <div class="mrg-top-40">
+                  <div class="timepicker-input input-icon form-group">
+                    <i class="ti-time"></i>
+                    <input type="text" class="form-control datepicker-1" formControlName="fridayEnd" placeholder="Datepicker" data-provide="datepicker"
+                      [owlDateTimeTrigger]="fridayE" [owlDateTime]="fridayE">
+                    <owl-date-time [pickerType]="'timer'" #fridayE></owl-date-time>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1">
+                <h4 class="card-title">Agregar</h4>
+                <div class="mrg-top-40">
+                  <button class="btn btn-info" (click)="addHour('fridayInit', 'fridayEnd', 'friday')">
+                    <i class="ei-addthis pdd-right-3"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 offset-md-3">
+                <ul class="event-list" *ngFor="let HoursFor of hourStartP">
+                  <li class="event-items" *ngIf="HoursFor.day === 'friday'">
+                    <h3>
+                      <span class="event-name">De: </span>
+                      <span class="event-name"> {{ HoursFor.datas.dayHourInitOut }} </span>
+                      <span class="event-name">A: </span>
+                      <span class="event-name"> {{ HoursFor.datas.dayHourEndOut }} </span>
+                      <a href="javascript:;" class="remove" (click)="removeHour('fridayInit', 'fridayEnd', 'friday', HoursFor)">
+                        <i class="ti-trash"></i>
+                      </a>
+                    </h3>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="tab-centered-6">
+          <div class="pdd-horizon-15 pdd-vertical-20">
+            <div class="row">
+              <div class="col-md-3 offset-md-3">
+                <h4 class="card-title">Hora Inicio</h4>
+                <div class="mrg-top-40">
+                  <div class="timepicker-input input-icon form-group">
+                    <i class="ti-time"></i>
+                    <input type="text" class="form-control datepicker-1" formControlName="saturdayInit" placeholder="Datepicker" data-provide="datepicker"
+                      [owlDateTimeTrigger]="saturdayI" [owlDateTime]="saturdayI">
+                    <owl-date-time [pickerType]="'timer'" #saturdayI></owl-date-time>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <h4 class="card-title">Hora Final</h4>
+                <div class="mrg-top-40">
+                  <div class="timepicker-input input-icon form-group">
+                    <i class="ti-time"></i>
+                    <input type="text" class="form-control datepicker-1" formControlName="saturdayEnd" placeholder="Datepicker" data-provide="datepicker"
+                      [owlDateTimeTrigger]="saturdayE" [owlDateTime]="saturdayE">
+                    <owl-date-time [pickerType]="'timer'" #saturdayE></owl-date-time>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1">
+                <h4 class="card-title">Agregar</h4>
+                <div class="mrg-top-40">
+                  <button class="btn btn-info" (click)="addHour('saturdayInit', 'saturdayEnd', 'saturday')">
+                    <i class="ei-addthis pdd-right-3"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 offset-md-3">
+                <ul class="event-list" *ngFor="let HoursFor of hourStartP">
+                  <li class="event-items" *ngIf="HoursFor.day === 'saturday'">
+                    <h3>
+                      <span class="event-name">De: </span>
+                      <span class="event-name"> {{ HoursFor.datas.dayHourInitOut }} </span>
+                      <span class="event-name">A: </span>
+                      <span class="event-name"> {{ HoursFor.datas.dayHourEndOut }} </span>
+                      <a href="javascript:;" class="remove" (click)="removeHour('saturdayInit', 'saturdayEnd', 'saturday', HoursFor)">
+                        <i class="ti-trash"></i>
+                      </a>
+                    </h3>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="tab-centered-7">
+          <div class="pdd-horizon-15 pdd-vertical-20">
+            <div class="row">
+              <div class="col-md-3 offset-md-3">
+                <h4 class="card-title">Hora Inicio</h4>
+                <div class="mrg-top-40">
+                  <div class="timepicker-input input-icon form-group">
+                    <i class="ti-time"></i>
+                    <input type="text" class="form-control datepicker-1" formControlName="sundayInit" placeholder="Datepicker" data-provide="datepicker"
+                      [owlDateTimeTrigger]="sundayI" [owlDateTime]="sundayI">
+                    <owl-date-time [pickerType]="'timer'" #sundayI></owl-date-time>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <h4 class="card-title">Hora Final</h4>
+                <div class="mrg-top-40">
+                  <div class="timepicker-input input-icon form-group">
+                    <i class="ti-time"></i>
+                    <input type="text" class="form-control datepicker-1" formControlName="sundayEnd" placeholder="Datepicker" data-provide="datepicker"
+                      [owlDateTimeTrigger]="sundayE" [owlDateTime]="sundayE">
+                    <owl-date-time [pickerType]="'timer'" #sundayE></owl-date-time>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1">
+                <h4 class="card-title">Agregar</h4>
+                <div class="mrg-top-40">
+                  <button class="btn btn-info" (click)="addHour('sundayInit', 'sundayEnd', 'sunday')">
+                    <i class="ei-addthis pdd-right-3"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 offset-md-3">
+                <ul class="event-list" *ngFor="let HoursFor of hourStartP">
+                  <li class="event-items" *ngIf="HoursFor.day === 'sunday'">
+                    <h3>
+                      <span class="event-name">De: </span>
+                      <span class="event-name"> {{ HoursFor.datas.dayHourInitOut }} </span>
+                      <span class="event-name">A: </span>
+                      <span class="event-name"> {{ HoursFor.datas.dayHourEndOut }} </span>
+                      <a href="javascript:;" class="remove" (click)="removeHour('sundayInit', 'sundayEnd', 'sunday', HoursFor)">
+                        <i class="ti-trash"></i>
+                      </a>
+                    </h3>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="submit" [class]="classBtn"  (click)="save()">{{ txtBtn }}</button>
+    </form>
+  </div>
+</div>

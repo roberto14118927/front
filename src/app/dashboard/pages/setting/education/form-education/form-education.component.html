@@ -1,0 +1,73 @@
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="card">
+              <div class="card-heading border bottom">
+                  <h4 class="card-title">Educación</h4>
+              </div>
+              <div class="card-block">
+                  <div class="card-block">
+                      <div class="row">
+                          <div class="col-md-8 ml-auto mr-auto">
+                              <form [formGroup]="EducationFormGroup">
+                                  <div class="row">
+                                      <div class="col-md-4">
+                                          <div class="form-group">
+                                              <label>Nombre</label>
+                                              <input type="text" class="form-control" formControlName="name" placeholder="Nombre">
+                                              <label *ngIf="EducationFormGroup.get('name').hasError('required')" class="error">El nombre es requerido.</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-4">
+                                          <div class="form-group">
+                                              <label>Nombre corto</label>
+                                              <input type="text" class="form-control" formControlName="shortName" placeholder="Nombre corto">
+                                          </div>
+                                      </div>
+                                      <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Nivel de educación</label>
+                                            <ng-selectize [config]="selectConfig" [options]="selectEducationLevels" formControlName="catEducationLevel" ngDefaultControl></ng-selectize>
+                                            <label *ngIf="EducationFormGroup.get('catEducationLevel').hasError('required')" class="error">El nivel de educación es requerida.</label>
+                                          </div>
+                                    </div>
+                                  </div> 
+                                  <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label for="logo">Logotipo</label>
+                                            <input type="file" id="educationLogo" class="form-control" (change)="onFileChange($event)" #fileInput>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img [src]="logoUrl" style="width:150px; height:150px;float:left;border-radius:50%;margin-right:25px;margin-left:10px;">
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Acronimo</label>
+                                              <input type="text" class="form-control" formControlName="acronym" placeholder="Acronimo">
+                                          </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                          <label>Meses de duración</label>
+                                          <div class="timepicker-input input-icon">
+                                              <i class="ti-time"></i>
+                                              <input type="text" class="form-control" formControlName="durationMonths" placeholder="Meses de duración">
+                                          </div>
+                                        </div>
+                                      </div>
+                                  </div>
+                                
+                                  <button type="submit" [class]="classBtn" [disabled]="EducationFormGroup.invalid" (click)="save()">{{ txtBtn }}</button>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,98 @@
+<div class="container-fluid">
+  <div class="page-title">
+      <h4>{{ title }}</h4>
+      <button class="btn btn-info" routerLink="new">Nuevo</button>
+  </div>
+  <div class="row">
+      <div class="col-md-12">
+          <div class="card">
+              <div class="card-block">   
+                  <div class="table-overflow">
+                      <table class="table table-lg table-hover" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+                          <thead>
+                              <tr class="text-center">
+                                  <th>Id</th>
+                                  <th>Carrera</th>	
+                                  <th>Sistema</th>
+                                  <th>Turno</th>
+                                  <th>Ciclo</th>
+                                  <th>Periodo</th>
+                                  <th></th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor="let educationperiod of educationperiods" class="text-center">
+                                  <td>
+                                      <div class="list-info mrg-top-10">
+                                          <div class="info">
+                                              <span class="title">{{ educationperiod.id }}</span>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  <td>
+                                    <div class="list-info mrg-top-10">
+                                        <div class="info">
+                                            <span class="title">{{ educationperiod.educationName }}</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="list-info mrg-top-10">
+                                        <div class="info">
+                                            <span class="title">{{ educationperiod.catEducationSystemName }}</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="list-info mrg-top-10">
+                                        <div class="info">
+                                            <span class="title">{{ educationperiod.catSchoolCycleName }}</span>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="list-info mrg-top-10">
+                                        <div class="info">
+                                            <span class="title">{{ educationperiod.catSchoolCycleName }}</span>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="list-info mrg-top-10">
+                                        <div class="info">
+                                            <span class="title">{{ educationperiod.name }}</span>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                  <td>
+                                      <div class="mrg-top-10 text-center">
+                                          <button [routerLink]="['edit', educationperiod.id]" class="btn btn-success btn-icon">
+                                              <i class="ti-pencil"></i>
+                                          </button>
+                                          <button [swal]="deleteSwal" class="btn btn-danger btn-icon">
+                                              <i class="ti-trash"></i>
+                                          </button>
+                                      </div>
+                                        <swal
+                                            #deleteSwal
+                                            title="Eliminar {{ educationperiod.educationName }}?"
+                                            text="Eliminar del sistema."
+                                            type="question"
+                                            [showCancelButton]="true"
+                                            [focusCancel]="true"
+                                            (confirm)="delete(educationperiod.id, educationperiod)">
+                                        </swal>
+                                  </td>
+                              </tr>
+                          </tbody> 
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>    
+

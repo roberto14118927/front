@@ -1,0 +1,48 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-heading border bottom">
+                    <h4 class="card-title">Documentos</h4>
+                </div>
+                <div class="card-block">
+                    <div class="card-block">
+                        <div class="row">
+                            <div class="col-md-8 ml-auto mr-auto">
+                                <form [formGroup]="DocumentsFormGroup">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Nombre documento</label>
+                                                <input type="text" class="form-control" formControlName="name" placeholder="Nombre documento">
+                                                <label *ngIf="DocumentsFormGroup.get('name').hasError('required')" class="error">El nombre del documento es requerido.</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Etiquetas</label>
+                                                <input type="text" class="form-control" formControlName="tags" placeholder="Etiquetas">
+                                                <label *ngIf="DocumentsFormGroup.get('tags').hasError('required')" class="error">Las etiquetas son requeridas.</label>
+                                              </div>
+                                        </div>
+                                    </div> 
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                          <div class="form-group">
+                                              <label for="logo">Documento</label>
+                                              <input type="file" id="url" class="form-control" (change)="onFileChange($event)" #fileInput accept=".doc, .docx, .xml, .pdf, .xlsx">
+                                          </div>
+                                      </div>
+                                    </div>
+                                    
+                                    <button type="submit" [class]="classBtn" [disabled]="DocumentsFormGroup.invalid" (click)="save()">{{ txtBtn }}</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

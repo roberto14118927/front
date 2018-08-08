@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="card">
+              <div class="card-heading border bottom">
+                  <h4 class="card-title">Tipo de educación</h4>
+              </div>
+              <div class="card-block">
+                  <div class="card-block">
+                      <div class="row">
+                          <div class="col-md-8 ml-auto mr-auto">
+                              <form [formGroup]="EducationTypeFormGroup">
+                                  <div class="row">
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Nombre</label>
+                                              <input type="text" class="form-control" formControlName="name" placeholder="Nombre">
+                                              <label *ngIf="EducationTypeFormGroup.get('name').hasError('required')" class="error">El nombre es requerido.</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                            <label>Institución</label>
+                                            <ng-selectize [config]="selectConfig" [options]="selectInstitutions" formControlName="Institution" ngDefaultControl></ng-selectize>
+                                            <label *ngIf="EducationTypeFormGroup.get('Institution').hasError('required')" class="error">La institución es requerida.</label>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <button type="submit" [class]="classBtn" [disabled]="EducationTypeFormGroup.invalid" (click)="save()">{{ txtBtn }}</button>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

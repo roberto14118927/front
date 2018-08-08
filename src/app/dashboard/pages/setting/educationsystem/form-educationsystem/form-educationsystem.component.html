@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="card">
+              <div class="card-heading border bottom">
+                  <h4 class="card-title">Área de educación</h4>
+              </div>
+              <div class="card-block">
+                  <div class="card-block">
+                      <div class="row">
+                          <div class="col-md-8 ml-auto mr-auto">
+                              <form [formGroup]="EducationSystemFormGroup">
+                                  <div class="row">
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Nombre</label>
+                                              <input type="text" class="form-control" formControlName="name" placeholder="Nombre">
+                                              <label *ngIf="EducationSystemFormGroup.get('name').hasError('required')" class="error">El nombre es requerido.</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                          <label>daysNumber</label>
+                                          <input type="number" class="form-control" formControlName="daysNumber" placeholder="daysNumber">
+                                          <label *ngIf="EducationSystemFormGroup.get('daysNumber').hasError('required')" class="error">El daysNumber es requerido.</label>
+                                        </div>
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>days</label>
+                                            <input type="number" class="form-control" formControlName="days" placeholder="days">
+                                            <label *ngIf="EducationSystemFormGroup.get('days').hasError('required')" class="error">el day es requerido.</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                  <button type="submit" [class]="classBtn" [disabled]="EducationSystemFormGroup.invalid" (click)="save()">{{ txtBtn }}</button>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

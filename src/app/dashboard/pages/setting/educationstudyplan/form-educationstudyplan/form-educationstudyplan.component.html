@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-heading border bottom">
+                    <h4 class="card-title">Plan de estudio</h4>
+                </div>
+                <div class="card-block">
+                    <div class="card-block">
+                        <div class="row">
+                            <div class="col-md-8 ml-auto mr-auto">
+                                <form [formGroup]="educationStudyPlanFormGroup">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Nombre</label>
+                                                <input type="text" class="form-control" formControlName="name" placeholder="Nombre">
+                                                <label *ngIf="educationStudyPlanFormGroup.get('name').hasError('required')" class="error">El nombre es requerido.</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Fecha</label>
+                                                <div class="timepicker-input input-icon">
+                                                    <i class="ti-time"></i>
+                                                    <input type="text" class="form-control" placeholder="yyyy-mm-dd" formControlName="initDate" ngbDatepicker #date="ngbDatepicker" (click)="date.toggle();$event.stopPropagation();" (document:click)="date.close()">
+                                                    <label *ngIf="educationStudyPlanFormGroup.get('initDate').hasError('required')" class="error">La fecha es requerida.</label>
+                                                  </div>
+                                              </div>
+                                        </div>
+                                    </div>
+                                  
+                                    <button type="submit" [class]="classBtn" [disabled]="educationStudyPlanFormGroup.invalid" (click)="save()">{{ txtBtn }}</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

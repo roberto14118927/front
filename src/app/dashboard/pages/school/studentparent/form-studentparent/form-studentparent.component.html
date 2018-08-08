@@ -1,0 +1,90 @@
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="card">
+              <div class="card-heading border bottom">
+                  <h4 class="card-title">Tutor</h4>
+              </div>
+              <div class="card-block">
+                  <div class="card-block">
+                      <div class="row">
+                          <div class="col-md-8 ml-auto mr-auto">
+                              <form [formGroup]="studentParentFormGroup">
+                                  <div class="row">
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Nombre</label>
+                                              <input type="text" class="form-control" formControlName="name" placeholder="Nombre">
+                                              <label *ngIf="studentParentFormGroup.get('name').hasError('required')" class="error">El nombre es requerido.</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Apellidos</label>
+                                            <input type="text" class="form-control" formControlName="lastName" placeholder="Nombre">
+                                            <label *ngIf="studentParentFormGroup.get('lastName').hasError('required')" class="error">El apellido es requerido.</label>
+                                        </div>
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Dirección</label>
+                                            <input type="text" class="form-control" formControlName="address" placeholder="Dirección">
+                                            <label *ngIf="studentParentFormGroup.get('address').hasError('required')" class="error">La dirección es requerido.</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Teléfonos</label>
+                                        <div class="form-group input-group">
+                                            <input type="number" class="form-control" formControlName="phone" placeholder="Teléfonos">
+                                            <button class="btn btn-primary" (click)="addPhone()"><i class="ti-plus"></i></button>
+                                        </div>
+                                        <div class="form-group">
+                                            <label *ngIf="studentParentFormGroup.get('phone').hasError('required')" class="error">El Teléfono es requerido.</label>
+                                            <span class="btn btn-default btn-rounded" *ngFor="let phone of phones">{{ phone.phone }}<i class="ti-close" (click)="removePhone(phone)"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-6">
+                                      <div class="form-group">
+                                          <label>Correo</label>
+                                          <input type="email" class="form-control" formControlName="email" placeholder="Correo">
+                                          <label *ngIf="studentParentFormGroup.get('email').hasError('required')" class="error">El correo es requerido.</label>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Tipo de pariente</label>
+                                        <ng-selectize [config]="selectConfig" [options]="selectTypePatents" formControlName="parentType" ngDefaultControl></ng-selectize>
+                                        <label *ngIf="studentParentFormGroup.get('parentType').hasError('required')" class="error">El tipo de pariente es requerido.</label>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-6">
+                                      <div class="form-group">
+                                          <label>Máximo grado de estudios</label>
+                                          <input type="text" class="form-control" formControlName="maxStudyGrade" placeholder="Máximo grado de estudios">
+                                          <label *ngIf="studentParentFormGroup.get('maxStudyGrade').hasError('required')" class="error">El máximo grado de estudios es requerido.</label>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Ocupación</label>
+                                        <input type="text" class="form-control" formControlName="occupation" placeholder="Ocupación">
+                                        <label *ngIf="studentParentFormGroup.get('occupation').hasError('required')" class="error">La ocupación es requerido.</label>
+                                    </div>
+                                  </div>
+                                </div>
+                                <button type="submit" [class]="classBtn" [disabled]="studentParentFormGroup.invalid" (click)="save()">{{ txtBtn }}</button>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

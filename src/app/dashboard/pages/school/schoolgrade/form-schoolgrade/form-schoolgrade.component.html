@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="card">
+              <div class="card-heading border bottom">
+                  <h4 class="card-title">Grado escolar</h4>
+              </div>
+              <div class="card-block">
+                  <div class="card-block">
+                      <div class="row">
+                          <div class="col-md-8 ml-auto mr-auto">
+                              <form [formGroup]="SchoolGradeFormGroup">
+                                  <div class="row">
+                                      <div class="col-md-4">
+                                          <div class="form-group">
+                                              <label>Nombre</label>
+                                              <input type="text" class="form-control" formControlName="name" placeholder="Nombre">
+                                              <label *ngIf="SchoolGradeFormGroup.get('name').hasError('required')" class="error">El nombre es requerido.</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-4">
+                                          <div class="form-group">
+                                              <label>Nombre corto</label>
+                                              <input type="text" class="form-control" formControlName="shortName" placeholder="Acronímo">
+                                              <label *ngIf="SchoolGradeFormGroup.get('shortName').hasError('required')" class="error">El nombre corto es requerido.</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Número de grado</label>
+                                            <input type="number" class="form-control" formControlName="gradeNumber" placeholder="Meses">
+                                            <label *ngIf="SchoolGradeFormGroup.get('gradeNumber').hasError('required')" class="error">El número de grado es requerido.</label>
+                                        </div>
+                                      </div>
+                                  </div>
+                        
+                                
+                                  <button type="submit" [class]="classBtn" [disabled]="SchoolGradeFormGroup.invalid" (click)="save()">{{ txtBtn }}</button>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

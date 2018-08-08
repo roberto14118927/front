@@ -1,0 +1,296 @@
+<div class="side-nav" sideBar>
+    <div class="side-nav-inner">
+        <div class="side-nav-logo">
+            <a href="" [routerLink]="['/dashboard']">
+                <div class="logo logo-dark" style="background-image: url('assets/images/logo/logo.png')"></div>
+                <div class="logo logo-white" style="background-image: url('assets/images/logo/logo-white.png')"></div>
+            </a>
+            <div class="mobile-toggle side-nav-toggle">
+                <a href="javascript:void(0);" (click)="openMenuCollapsed()">
+                    <i class="ti-arrow-circle-left"></i>
+                </a>
+            </div>
+        </div>
+        <ul class="side-nav-menu scrollable">
+            <li clas="nav-item" routerLinkActive="active">
+                <a class="mrg-top-30" href="" [routerLink]="['/dashboard']">
+                    <span class="icon-holder">
+                        <i class="ti-home"></i>
+                    </span>
+                    <span class="title">Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item dropdown" >
+                <a class="dropdown-toggle" href="javascript:void(0);" >
+                    <span class="icon-holder">
+                        <i class="ti-package"></i>
+                    </span>
+                    <span class="title">Apps</span>
+                    <span class="arrow">
+                        <i class="ti-angle-right"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="" [routerLink]="['/apps/email/email-inbox/1']">Email</a>
+                    </li>
+                    <li>
+                        <a href="" [routerLink]="['/apps/calendar']">Calendar</a>
+                    </li>
+                    <li>
+                        <a href="" [routerLink]="['/apps/social']">Social</a>
+                    </li>              
+                </ul>
+            </li>
+            <li class="nav-item dropdown" routerLinkActive="open">
+                <a class="dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="ti-palette"></i>
+                    </span>
+                    <span class="title">UI Elements</span>
+                    <span class="arrow">
+                        <i class="ti-angle-right"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="" [routerLink]="['/ui-elements/cards']">Cards</a>
+                    </li>
+                    <li>
+                        <a href="" [routerLink]="['/ui-elements/buttons']">Buttons</a>
+                    </li>
+                    <li>
+                        <a href="" [routerLink]="['/ui-elements/modals']">Modals</a>
+                    </li>
+                    <li> 
+                        <a href="" [routerLink]="['/ui-elements/tabs']">Tabs &amp; Accordions</a>
+                    </li>
+                    <li>
+                        <a href="" [routerLink]="['/ui-elements/progress-slider']">Progress &amp; Slider</a>
+                    </li>
+                    <li>
+                        <a href="" [routerLink]="['/ui-elements/notification']">Notification</a>
+                    </li>
+                    <li>
+                        <a href="" [routerLink]="['/ui-elements/typography']">Typography</a>
+                    </li>
+                    <li>
+                        <a href="" [routerLink]="['/ui-elements/icons']">Icons</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown" >
+                <a class="dropdown-toggle" href="javascript:void(0);" >
+                    <span class="icon-holder">
+                        <i class="ti-file"></i>
+                    </span>
+                    <span class="title">Inscripciones</span>
+                    <span class="arrow">
+                        <i class="ti-angle-right"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="" routerLink="enrollment">Inscripciones</a>
+                    </li>
+                    <li>
+                        <a href="" routerLink="enrollment">Reinscripciones</a>
+                    </li>                  
+                </ul>
+            </li>
+            <li class="nav-item dropdown" routerLinkActive="open">
+                <a class="dropdown-toggle" href="javascript:void(0);" >
+                    <span class="icon-holder">
+                        <i class="ti-layout-media-overlay"></i>
+                    </span>
+                    <span class="title">Drive</span>
+                    <span class="arrow">
+                        <i class="ti-angle-right"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="" routerLink="drive/documents">Documentos</a>
+                    </li>                  
+                </ul>
+            </li>
+            <!-- <li class="nav-item dropdown" >
+                <a class="dropdown-toggle" href="javascript:void(0);" >
+                    <span class="icon-holder">
+                        <i class="ti-pie-chart"></i>
+                    </span>
+                    <span class="title">Charts</span>
+                    <span class="arrow">
+                        <i class="ti-angle-right"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="" [routerLink]="['/charts/nvd3']">Nvd3</a>
+                    </li>
+                    <li>
+                        <a href="" [routerLink]="['/charts/chartjs']">ChartJs</a>
+                    </li>
+                    <li>
+                        <a href="" [routerLink]="['/charts/sparkline']">Sparkline</a>
+                    </li>
+                </ul>
+            </li> -->
+            <li class="nav-item dropdown" >
+                <a class="dropdown-toggle" href="javascript:void(0);" >
+                    <span class="icon-holder">
+                        <i class="ti-pie-chart"></i>
+                    </span>
+                    <span class="title">Maestros</span>
+                    <span class="arrow">
+                        <i class="ti-angle-right"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="nav-item dropdown">
+                        <a href="javascript:void(0);" routerLink="teacher">
+                            <span>Horarios</span>
+                        </a>
+                    </li>	
+                </ul>
+            </li>
+            <li class="nav-item dropdown" routerLinkActive="open">
+                <a class="dropdown-toggle" href="javascript:void(0);" >
+                    <span class="icon-holder">
+                        <i class="ti-map-alt"></i>
+                    </span>
+                    <span class="title">Escuela</span>
+                    <span class="arrow">
+                        <i class="ti-angle-right"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="" routerLink="school/schoolgrade">Grado escolar</a>
+                    </li>            
+                </ul>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="" routerLink="school/schooloriginlevel">Nivel de escuelas</a>
+                    </li>            
+                </ul>
+                <ul class="dropdown-menu">
+                        <li>
+                            <a href="" routerLink="school/weekday">Días de la semana</a>
+                        </li>            
+                </ul>
+                <ul class="dropdown-menu">
+                        <li>
+                            <a href="" routerLink="school/studentparent">Tutores</a>
+                        </li>            
+                    </ul>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="" routerLink="school/schoolorigin">Escuelas de origen</a>
+                    </li>            
+                </ul>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="" routerLink="school/materia">Materias</a>
+                    </li>            
+                </ul>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="" routerLink="school/schoolgroup">Grupos</a>
+                    </li>            
+                </ul>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="" routerLink="school/groupmateriastudent">Grupos de materia</a>
+                    </li>            
+                </ul>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="" routerLink="school/educationperiod">Periodo escolar</a>
+                    </li>            
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="ti-view-list-alt"></i>
+                    </span>
+                    <span class="title">Configuración</span>
+                    <span class="arrow">
+                        <i class="ti-angle-right"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="nav-item dropdown">
+                        <a href="javascript:void(0);" routerLink="settings/institution">
+                            <span>Intitución</span>
+                        </a>
+                    </li>	
+                    <li class="nav-item dropdown">
+                        <a href="javascript:void(0);" routerLink="settings/educationtype">
+                            <span>Tipo de educación</span>
+                        </a>
+                    </li>	
+                    <li class="nav-item dropdown">
+                        <a href="javascript:void(0);" routerLink="settings/educationlevel">
+                            <span>Nivel de educación</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="javascript:void(0);" routerLink="settings/educationarea">
+                            <span>Área de educación</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="javascript:void(0);" routerLink="settings/education">
+                            <span>Educación</span>
+                        </a>
+                    </li>	
+                    <li class="nav-item dropdown">
+                        <a href="javascript:void(0);" routerLink="settings/educationsystem">
+                            <span>Sistema de educación</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="javascript:void(0);" routerLink="settings/schoolperiod">
+                            <span>Periodo escolar</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="javascript:void(0);" routerLink="settings/schoolcycle">
+                            <span>Ciclo escolar</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="javascript:void(0);" routerLink="settings/schoolshift">
+                            <span>School Shift</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="javascript:void(0);" routerLink="settings/hasschoolshift">
+                            <span>Has Shift</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="javascript:void(0);" routerLink="settings/educationstudyplan">
+                            <span>Plan de estudios</span>
+                        </a>
+                    </li>
+                    <!-- <li class="nav-item dropdown">
+                        <a href="javascript:void(0);">
+                            <span>Level 1.1</span>
+                            <span class="arrow">
+                                <i class="ti-angle-right"></i>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="javascript:void(0);">Level 2</a>
+                            </li>         
+                        </ul>
+                    </li>          -->
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

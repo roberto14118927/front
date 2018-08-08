@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-heading border bottom">
+          <h4 class="card-title">School Shift</h4>
+        </div>
+        <div class="card-block">
+          <div class="card-block">
+            <div class="row">
+              <div class="col-md-8 ml-auto mr-auto">
+                <form [formGroup]="SchoolshiftFormGroup">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" class="form-control" formControlName="name" placeholder="Nombre">
+                        <label *ngIf="SchoolshiftFormGroup.get('name').hasError('required')" class="error">El nombre es requerido.</label>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label>Hora Inicio</label>
+                        <input class="form-control" formControlName="initTime" placeholder="Hora Inicio" data-provide="datepicker" [owlDateTimeTrigger]="initTimeIn"
+                          [owlDateTime]="initTimeIn">
+                        <owl-date-time [pickerType]="'timer'" #initTimeIn></owl-date-time>
+                        <label *ngIf="SchoolshiftFormGroup.get('initTime').hasError('required')" class="error">La hora inicio es requerido.</label>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label>Hora Final</label>
+                        <input type="text" class="form-control" formControlName="endTime" placeholder="Hora Final" data-provide="datepicker" [owlDateTimeTrigger]="endTimeIn"
+                          [owlDateTime]="endTimeIn">
+                          <owl-date-time [pickerType]="'timer'" #endTimeIn></owl-date-time>
+                        <label *ngIf="SchoolshiftFormGroup.get('endTime').hasError('required')" class="error">La hora final es requerido.</label>
+                      </div>
+                    </div>
+                  </div>
+                  <button type="submit" [class]="classBtn" [disabled]="SchoolshiftFormGroup.invalid" (click)="save()">{{ txtBtn }}</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

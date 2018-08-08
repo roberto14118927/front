@@ -1,0 +1,110 @@
+<div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-heading border bottom">
+                        <h4 class="card-title">Escuelas de origen</h4>
+                    </div>
+                    <div class="card-block">
+                        <div class="card-block">
+                            <div class="row">
+                                <div class="col-md-8 ml-auto mr-auto">
+                                    <form [formGroup]="SchoolOriginFormGroup">
+                                      <div class="row">
+                                          <div class="col-md-6">
+                                              <div class="form-group">
+                                                  <label>Nivel de educación</label>
+                                                  <ng-selectize [config]="selectConfig" [options]="selectEducationLevels" formControlName="catEducationLevel" ngDefaultControl></ng-selectize>
+                                                  <label *ngIf="SchoolOriginFormGroup.get('catEducationLevel').hasError('required')" class="error">El nivel de educación es requerida.</label>
+                                              </div>
+                                          </div>
+                                          <div class="col-md-6">
+                                              <div class="form-group">
+                                                  <label>Nombre</label>
+                                                  <input type="text" class="form-control" formControlName="schoolName" placeholder="Dirección">
+                                                  <label *ngIf="SchoolOriginFormGroup.get('schoolName').hasError('required')" class="error">El nombre es requerido.</label>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-4">
+                                              <div class="form-group">
+                                                  <label>Estado</label>
+                                                  <ng-selectize [config]="selectConfigState" [options]="selectStates" formControlName="schoolState" (ngModelChange)="onChange($event)" ngDefaultControl></ng-selectize>
+                                              </div>
+                                          </div>
+                                          <div class="col-md-4">
+                                              <div class="form-group">
+                                                  <label>Ciudad</label>
+                                                  <ng-selectize [config]="selectConfigCity" [options]="selectCityes" formControlName="schoolCity" ngDefaultControl [enabled]="isEnabled"></ng-selectize>
+                                                  <label *ngIf="SchoolOriginFormGroup.get('schoolCity').hasError('required')" class="error">La ciudad es requerido.</label>
+                                              </div>
+                                          </div>
+                                          <div class="col-md-4">
+                                              <div class="form-group">
+                                                  <label>Dirección</label>
+                                                  <input type="text" class="form-control" formControlName="address" placeholder="Dirreción">
+                                                  <label *ngIf="SchoolOriginFormGroup.get('address').hasError('required')" class="error">La dirección es requerida.</label>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-6">
+                                                  <div class="form-group">
+                                                      <label>Código postal</label>
+                                                      <input type="number" class="form-control" formControlName="postalCode" placeholder="Código postal">
+                                                      <label *ngIf="SchoolOriginFormGroup.get('postalCode').hasError('required')" class="error">El código postal es requerido.</label>
+                                                  </div>
+                                              </div>
+                                          <div class="col-md-6">
+                                              <div class="form-group">
+                                                  <label>Teléfono</label>
+                                                  <input type="number" class="form-control" formControlName="phone" placeholder="Teléfono">
+                                                  <label *ngIf="SchoolOriginFormGroup.get('phone').hasError('required')" class="error">El Teléfono es requerido.</label>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-6">
+                                              <div class="form-group">
+                                                  <label>Correo electrónico</label>
+                                                  <input type="email" class="form-control" formControlName="email" placeholder="Correo electrónico">
+                                                  <label *ngIf="SchoolOriginFormGroup.get('email').hasError('required')" class="error">El correo electrónico es requerido.</label>
+                                              </div>
+                                          </div>
+                                          <div class="col-md-6">
+                                              <div class="form-group">
+                                                  <label>Sitio web</label>
+                                                  <input type="url" class="form-control" formControlName="webSite" placeholder="Sitio web">
+                                                  <label *ngIf="SchoolOriginFormGroup.get('webSite').hasError('required')" class="error">El sitio web es requerido.</label>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-6">
+                                                  <div class="form-group">
+                                                      <label>Latitud</label>
+                                                      <input type="text" class="form-control" formControlName="lat" placeholder="Latitud">
+                                                      <label *ngIf="SchoolOriginFormGroup.get('lat').hasError('required')" class="error">La latitud es requerida.</label>
+                                                  </div>
+                                              </div>
+                                          <div class="col-md-6">
+                                              <div class="form-group">
+                                                  <label>Longitud</label>
+                                                  <input type="text" class="form-control" formControlName="lon" placeholder="Longitud">
+                                                  <label *ngIf="SchoolOriginFormGroup.get('lon').hasError('required')" class="error">La longitud es requerida.</label>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      
+                                      <button type="submit" [class]="classBtn" [disabled]="SchoolOriginFormGroup.invalid" (click)="save()">{{ txtBtn }}</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      

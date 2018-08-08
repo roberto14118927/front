@@ -1,0 +1,32 @@
+<div class="app" [ngClass]="
+    {
+        'is-collapsed': app.layout.isMenuCollapsed,
+        'is-opened': app.layout.isMenuOpened,
+        'rtl' : app.layout.rtlActived
+    }">
+    <div class="layout" [ngClass]="headerSelected">
+        <div [ngClass]="sidenavSelected">
+            <!-- Side Nav START -->
+                <app-sidenav [visible]="visible" (menuCollapsed)="menuCollapsedChange($event)"></app-sidenav>
+            <!-- Side Nav END -->
+
+            <!-- Page Container START -->
+            <div class="page-container">
+                <!-- Top Nav START -->
+                    <app-topnav [visible]="visible" (menuCollapsed)="menuCollapsedChange($event)"></app-topnav>
+                <!-- Top Nav END -->
+
+                <!-- Content Wrapper START -->
+                <div class="main-content">
+                    <router-outlet></router-outlet>
+                </div>    
+                <!-- Content Wrapper END -->
+
+                <!-- Footer START -->
+                    <app-footer></app-footer>
+                <!-- Footer END -->
+            </div>
+            <!-- Page Container END -->
+         </div>
+    </div>    
+</div>

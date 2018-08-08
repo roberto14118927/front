@@ -1,0 +1,87 @@
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="card">
+              <div class="card-heading border bottom">
+                  <h4 class="card-title">Periodo escolar</h4>
+              </div>
+              <div class="card-block">
+                  <div class="card-block">
+                      <div class="row">
+                          <div class="col-md-8 ml-auto mr-auto">
+                              <form [formGroup]="educationPeriodFormGroup">
+                                  <div class="row">
+                                      <div class="col-md-4">
+                                          <div class="form-group">
+                                              <label>Educación</label>
+                                              <ng-selectize [config]="selectConfig" [options]="educactions" formControlName="education" ngDefaultControl></ng-selectize>
+                                              <label *ngIf="educationPeriodFormGroup.get('education').hasError('required')" class="error">La educación es requerida.</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-4">
+                                          <div class="form-group">
+                                              <label>Sistema de educación</label>
+                                              <ng-selectize [config]="selectConfig" [options]="catEducationSystems" formControlName="catEducationSystem" ngDefaultControl></ng-selectize>
+                                              <label *ngIf="educationPeriodFormGroup.get('catEducationSystem').hasError('required')" class="error">El sistema de educación es requerido.</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Turno</label>
+                                            <ng-selectize [config]="selectConfig" [options]="catSchoolShifts" formControlName="catSchoolShift" ngDefaultControl></ng-selectize>
+                                            <label *ngIf="educationPeriodFormGroup.get('catSchoolShift').hasError('required')" class="error">El turno es requerido.</label>
+                                        </div>
+                                      </div>
+                                  </div>
+
+                                  <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Ciclo escolar</label>
+                                            <ng-selectize [config]="selectConfig" [options]="catSchoolCycles" formControlName="catSchoolCycle" ngDefaultControl></ng-selectize>
+                                            <label *ngIf="educationPeriodFormGroup.get('catSchoolCycle').hasError('required')" class="error">El ciclo escolar es requerida.</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Periodo escolar</label>
+                                            <ng-selectize [config]="selectConfig" [options]="catSchoolPeriods" formControlName="catSchoolPeriod" ngDefaultControl></ng-selectize>
+                                            <label *ngIf="educationPeriodFormGroup.get('catSchoolPeriod').hasError('required')" class="error">El periodo escolar es requerido.</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="form-group">
+                                          <label>Plan de estudios</label>
+                                          <ng-selectize [config]="selectConfig" [options]="educationStudyPlans" formControlName="educationStudyPlan" ngDefaultControl></ng-selectize>
+                                          <label *ngIf="educationPeriodFormGroup.get('educationStudyPlan').hasError('required')" class="error">El plan de estudio es requerido.</label>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Generación</label>
+                                            <input type="number" class="form-control" formControlName="generation" placeholder="Generación">
+                                            <label *ngIf="educationPeriodFormGroup.get('generation').hasError('required')" class="error">La generación es requerida.</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Periodo</label>
+                                            <input type="number" class="form-control" formControlName="period" placeholder="Periodo">
+                                            <label *ngIf="educationPeriodFormGroup.get('period').hasError('required')" class="error">El period es requerido.</label>
+                                        </div>
+                                    </div>
+                                  </div>
+                                
+                                  <button type="submit" [class]="classBtn" [disabled]="educationPeriodFormGroup.invalid" (click)="save()">{{ txtBtn }}</button>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

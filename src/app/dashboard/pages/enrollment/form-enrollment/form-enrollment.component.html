@@ -1,0 +1,187 @@
+<div class="container-fluid">
+    <div class="page-title">
+        <h4>Inscripciones</h4>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="accordion-1" class="accordion panel-group" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion-1" href="#collapseOne">
+                                    <span>Información Educativa</span>
+                                    <i class="icon ti-arrow-circle-down"></i> 
+                                </a>
+                            </h4>
+                    </div>
+
+                    <div id="collapseOne" class="collapse panel-collapse show">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Nivel</label>
+                                        <ng-selectize [config]="selectConfig" [options]="" ngDefaultControl></ng-selectize>
+                                        <!-- <label *ngIf="SchoolOriginFormGroup.get('schoolCity').hasError('required')" class="error">La ciudad es requerido.</label> -->
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Área</label>
+                                        <ng-selectize [config]="selectConfig" [options]="" ngDefaultControl></ng-selectize>
+                                        <!-- <label *ngIf="SchoolOriginFormGroup.get('schoolCity').hasError('required')" class="error">La ciudad es requerido.</label> -->
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Grado</label>
+                                        <ng-selectize [config]="selectConfig" [options]="" ngDefaultControl></ng-selectize>
+                                        <!-- <label *ngIf="SchoolOriginFormGroup.get('schoolCity').hasError('required')" class="error">La ciudad es requerido.</label> -->
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Grupo</label>
+                                        <ng-selectize [config]="selectConfig" [options]="" ngDefaultControl></ng-selectize>
+                                        <!-- <label *ngIf="SchoolOriginFormGroup.get('schoolCity').hasError('required')" class="error">La ciudad es requerido.</label> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion-1" href="#collapseTwo">
+                                    <span>Información de Inscripción</span>
+                                    <i class="icon ti-arrow-circle-down"></i> 
+                                </a>
+                            </h4>
+                    </div>
+
+                    <div id="collapseTwo" class="collapse panel-collapse show">
+                        <div class="panel-body">
+                           <form-wizard>
+                              <wizard-step [title]="'Datos del alumno'" (onNext)="onStep1Next($event)">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Nombre(s)</label>
+                                            <input type="text" class="form-control"  placeholder="Nombre(s)">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Apellido Materno</label>
+                                            <input type="text" class="form-control"  placeholder="Apellido Materno">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Apellido Paterno</label>
+                                            <input type="text" class="form-control"  placeholder="Apellido Paterno">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Dirección</label>
+                                            <input type="text" class="form-control"  placeholder="Dirección">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Fecha de nacimiento</label>
+                                            <input type="text" class="form-control"  placeholder="Fecha de nacimiento">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Teléfono</label>
+                                            <input type="text" class="form-control"  placeholder="Teléfono">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Escuela de procedencia</label>
+                                            <input type="text" class="form-control"  placeholder="Escuela de procedencia">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Correo electrónico</label>
+                                            <input type="text" class="form-control"  placeholder="Correo electrónico">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Curp</label>
+                                            <input type="text" class="form-control"  placeholder="Curp">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Código postal</label>
+                                            <input type="number" class="form-control"  placeholder="Código postal">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Estado</label>
+                                            <ng-selectize [config]="selectConfig" [options]="" ngDefaultControl></ng-selectize>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Ciudad</label>
+                                            <ng-selectize [config]="selectConfig" [options]="" ngDefaultControl></ng-selectize>
+                                          </div>
+                                    </div>
+                                </div>
+
+                              </wizard-step>
+                              <wizard-step [title]="'Datos del padre o tutor'" (onNext)="onStep2Next($event)">
+                                  <form class="mrg-top-40">
+                                  </form>
+                              </wizard-step>
+                              <wizard-step [title]="'Documentación'" (onComplete)="onComplete($event)">
+                                  <form class="mrg-top-40">
+                                  </form>
+                              </wizard-step>
+                          </form-wizard>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion-1" href="#collapseThree">
+                                    <span>Información Médica</span>
+                                    <i class="icon ti-arrow-circle-down"></i> 
+                                </a>
+                            </h4>
+                    </div>
+
+                    <div id="collapseThree" class="collapse panel-collapse show">
+                        <div class="panel-body">
+                            <p>
+                                Holding her is dangerous. If word of this gets out, it could generate sympathy for the Rebellion in the senate. I have traced the Rebel spies to her. Now she is my only link to find their secret base! She'll die before she tells you anything. Leave that to me. Send a distress signal and then inform the senate that all aboard were killed! Lord Vader, the battle station plans are not aboard this ship! And no transmissions were made.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+  </div>    
+  
+  

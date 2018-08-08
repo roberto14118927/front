@@ -1,0 +1,59 @@
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="card">
+              <div class="card-heading border bottom">
+                  <h4 class="card-title">Nivel de educación</h4>
+              </div>
+              <div class="card-block">
+                  <div class="card-block">
+                      <div class="row">
+                          <div class="col-md-8 ml-auto mr-auto">
+                              <form [formGroup]="EducationLevelFormGroup">
+                                  <div class="row">
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Nombre</label>
+                                              <input type="text" class="form-control" formControlName="name" placeholder="Nombre">
+                                              <label *ngIf="EducationLevelFormGroup.get('name').hasError('required')" class="error">El nombre es requerido.</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                            <label>Tipo de educación</label>
+                                            <ng-selectize [config]="selectConfig" [options]="selectEducationTypes" formControlName="catEducationType" ngDefaultControl></ng-selectize>
+                                            <label *ngIf="EducationLevelFormGroup.get('catEducationType').hasError('required')" class="error">El tipo de educación es requerida.</label>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Dirección</label>
+                                            <input type="text" class="form-control" formControlName="address" placeholder="Dirección">
+                                            <label *ngIf="EducationLevelFormGroup.get('address').hasError('required')" class="error">La dirección es requerido.</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                            <label>Teléfonos</label>
+
+                                        <div class="form-group input-group">
+                                            <input type="number" class="form-control" formControlName="phone" placeholder="Teléfonos">
+                                            <button class="btn btn-primary" (click)="addPhone()"><i class="ti-plus"></i></button>
+                                        </div>
+                                        <div class="form-group">
+                                            <label *ngIf="EducationLevelFormGroup.get('phone').hasError('required')" class="error">El Teléfono es requerido.</label>
+                                            <span class="btn btn-default btn-rounded" *ngFor="let phone of phones">{{ phone.phone }}<i class="ti-close" (click)="removePhone(phone)"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                  <button type="submit" [class]="classBtn" [disabled]="EducationLevelFormGroup.invalid" (click)="save()">{{ txtBtn }}</button>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

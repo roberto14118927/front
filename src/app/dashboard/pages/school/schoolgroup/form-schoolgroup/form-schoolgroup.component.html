@@ -1,0 +1,48 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-heading border bottom">
+                    <h4 class="card-title">Grado escolar</h4>
+                </div>
+                <div class="card-block">
+                    <div class="card-block">
+                        <div class="row">
+                            <div class="col-md-8 ml-auto mr-auto">
+                                <form [formGroup]="SchoolGroupFormGroup">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Periodo</label>
+                                                <ng-selectize [config]="selectConfig" [options]="selectEducationPeriods" formControlName="educactionPeriod" ngDefaultControl></ng-selectize>
+                                                <label *ngIf="SchoolGroupFormGroup.get('educactionPeriod').hasError('required')" class="error">El periodo es requerido.</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Grado</label>
+                                                <ng-selectize [config]="selectConfig" [options]="selectSchoolGrades" formControlName="catSchoolGrade" ngDefaultControl></ng-selectize>
+                                                <label *ngIf="SchoolGroupFormGroup.get('catSchoolGrade').hasError('required')" class="error">El grado es requerido.</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <div class="form-group">
+                                              <label>Acronimo</label>
+                                              <input type="text" class="form-control" formControlName="acronym" placeholder="acronym">
+                                              <label *ngIf="SchoolGroupFormGroup.get('acronym').hasError('required')" class="error">El acronym es requerido.</label>
+                                          </div>
+                                        </div>
+                                    </div>
+                          
+                                  
+                                    <button type="submit" [class]="classBtn" [disabled]="SchoolGroupFormGroup.invalid" (click)="save()">{{ txtBtn }}</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

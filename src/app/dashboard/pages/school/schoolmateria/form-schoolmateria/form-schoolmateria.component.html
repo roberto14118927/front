@@ -1,0 +1,118 @@
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="card">
+              <div class="card-heading border bottom">
+                  <h4 class="card-title">Materias</h4>
+              </div>
+              <div class="card-block">
+                  <div class="card-block">
+                      <div class="row">
+                          <div class="col-md-8 ml-auto mr-auto">
+                              <form [formGroup]="schoolMateriaFormGroup">
+                                  <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Educación</label>
+                                            <ng-selectize [config]="selectConfig" [options]="educations" formControlName="education" ngDefaultControl></ng-selectize>
+                                            <label *ngIf="schoolMateriaFormGroup.get('education').hasError('required')" class="error">La educación es requerida.</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Plan de estudio</label>
+                                            <ng-selectize [config]="selectConfig" [options]="educationStudyPlans" formControlName="educationStudyPlan" ngDefaultControl></ng-selectize>
+                                            <label *ngIf="schoolMateriaFormGroup.get('educationStudyPlan').hasError('required')" class="error">El plan de estudio es requerido.</label>
+                                        </div>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Grado escolar </label>
+                                            <ng-selectize [config]="selectConfig" [options]="catSchoolGrades" formControlName="catSchoolGrade" ngDefaultControl></ng-selectize>
+                                            <label *ngIf="schoolMateriaFormGroup.get('catSchoolGrade').hasError('required')" class="error">El grado escolar es requerido.</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Nombre</label>
+                                            <input type="text" class="form-control" formControlName="name" placeholder="Nombre">
+                                            <label *ngIf="schoolMateriaFormGroup.get('name').hasError('required')" class="error">El nombre es requerido.</label>
+                                        </div>                                        
+                                    </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-6">
+                                      <div class="form-group">
+                                          <label>Creditos</label>
+                                          <input type="number" class="form-control" formControlName="credit" placeholder="Creditos">
+                                          <label *ngIf="schoolMateriaFormGroup.get('credit').hasError('required')" class="error">Los creditos son requeridos.</label>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Horas en la semana</label>
+                                        <input type="number" class="form-control" formControlName="minHoursAWeek" placeholder="Horas en la semana">
+                                        <label *ngIf="schoolMateriaFormGroup.get('minHoursAWeek').hasError('required')" class="error">Las horas en la semana son requeridos.</label>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Uso de laboratorio</label>
+                                            <ng-selectize [config]="selectConfigT" [options]="selectConfigD" formControlName="useLaboratory" (ngModelChange)="onChange($event, 2, 'laboratoryHours')" ngDefaultControl></ng-selectize>
+                                            <label *ngIf="schoolMateriaFormGroup.get('useLaboratory').hasError('required')" class="error">El uso de laboratorio es requerido.</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Horas en laboratorio</label>
+                                            <input type="number" class="form-control" formControlName="laboratoryHours" placeholder="Horas en laboratorio">
+                                            <label *ngIf="schoolMateriaFormGroup.get('laboratoryHours').hasError('required')" class="error">Las horas en laboratorio son requeridos.</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Teoría</label>
+                                            <ng-selectize [config]="selectConfigT" [options]="selectConfigD" formControlName="onlyTheory" (ngModelChange)="onChange($event, 2, 'percentTheory')" ngDefaultControl></ng-selectize>
+                                            <label *ngIf="schoolMateriaFormGroup.get('onlyTheory').hasError('required')" class="error">La teoria es requerida.</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Porcentaje de teoría</label>
+                                            <input type="number" class="form-control" formControlName="percentTheory" placeholder="Porcentaje de teoría">
+                                            <label *ngIf="schoolMateriaFormGroup.get('percentTheory').hasError('required')" class="error">El porcentaje de teoría es requerido.</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Porcentaje de practica</label>
+                                            <input type="number" class="form-control" formControlName="percentPractice" placeholder="Porcentaje de practica">
+                                            <label *ngIf="schoolMateriaFormGroup.get('percentPractice').hasError('required')" class="error">El porcentaje de practica es requerido.</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Orden</label>
+                                            <input type="number" class="form-control" formControlName="order" placeholder="Orden">
+                                            <label *ngIf="schoolMateriaFormGroup.get('order').hasError('required')" class="error">El orden es requerido.</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" [class]="classBtn" [disabled]="schoolMateriaFormGroup.invalid" (click)="save()">{{ txtBtn }}</button>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
